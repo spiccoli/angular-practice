@@ -1,0 +1,94 @@
+@mixin focus {
+    &:focus {
+      outline-offset: 2px;
+      outline: 2px solid #07c;
+    }
+  }
+  
+  form {
+    max-width: 350px;
+    margin: 80px auto;
+    padding: 16px 16px 24px;
+    box-shadow: 0 2px 32px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure form itself respects box-sizing */
+  }
+  
+  .form-control {
+    margin-bottom: 0;
+    input,
+    label {
+      display: block;
+    }
+  
+    label {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+  
+    input {
+      width: 100%; /* Ensure input spans full width of form-control */
+      margin: 0;
+      height: 40px;
+      border-radius: 4px;
+      border: 2px solid #ccc;
+      background-color: white;
+      padding: 0 10px; /* Add padding inside input for spacing */
+      box-sizing: border-box; /* Include padding and border in the width */
+      @include focus;
+    }
+  }
+  
+  button,
+  input[type="submit"] {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box; /* Ensure the button does not overflow */
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  button:hover,
+  input[type="submit"]:hover,
+  button:focus,
+  input[type="submit"]:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  button:hover,
+  input[type="submit"]:hover {
+    transform: translateY(-1px);
+  }
+  
+  button:active,
+  input[type="submit"]:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+  }
+  
