@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-</head>
 <body>
     <h2>Login Form</h2>
-    <form action="#" method="POST">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-control">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-    </div>
-        <input type="submit" value="Login">  
-    </form>
+            <label for="email">Email:</label>
+            <input id="email" formControlName="email" type="email" />
+            <div class="errorhandling" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <small *ngIf="loginForm.get('email')?.hasError('required')">Email is required.</small>
+              <small *ngIf="loginForm.get('email')?.hasError('email')">Please enter a valid email address.</small>
+            </div>
+          </div>
+        
+          <div class="form-control">
+            <label for="password">Password:</label>
+            <input id="password" formControlName="password" type="password" />
+            <div class="errorhandling" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required.</small>
+              <small *ngIf="loginForm.get('password')?.hasError('minlength')">
+                Password must be at least 6 characters long.
+              </small>
+            </div>
+          </div>
+        
+          <button type="submit" [disabled]="loginForm.invalid">Register</button>
+        </form>
 </body>
-</html>
+

@@ -69,7 +69,9 @@ export class RegisterComponent {
       )
       .subscribe((response) => {
         if (response) {
-          alert('User registered successfully!');
+          document.body.innerHTML = '<h1 style="text-align: center; margin-top: 20%;">Success!</h1>';
+        }else {
+          alert('Register failed. Please check your credentials.');
         }
       });
   }
